@@ -28,8 +28,8 @@ public class RecordService extends Service {
     private static final String CHANNEL_ID = "audiosource";
     private static final int NOTIFICATION_ID = 1;
 
-    private static final int DEFAULT_SAMPLE_RATE = 44100;
-    private static final int DEFAULT_CHANNEL_CONFIG = AudioFormat.CHANNEL_IN_MONO;
+    private static final int DEFAULT_SAMPLE_RATE = 48000;
+    private static final int DEFAULT_CHANNEL_CONFIG = AudioFormat.CHANNEL_IN_STEREO;
     private static final int DEFAULT_AUDIO_ENCODING = AudioFormat.ENCODING_PCM_16BIT;
 
     private Thread recorderThread;
@@ -79,7 +79,7 @@ public class RecordService extends Service {
                 DEFAULT_AUDIO_ENCODING);
 
         AudioRecord recorder = new AudioRecord(
-                MediaRecorder.AudioSource.DEFAULT,
+                MediaRecorder.AudioSource.UNPROCESSED,
                 DEFAULT_SAMPLE_RATE,
                 DEFAULT_CHANNEL_CONFIG,
                 DEFAULT_AUDIO_ENCODING,
